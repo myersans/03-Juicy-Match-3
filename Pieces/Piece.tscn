@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Pieces/Piece.gd" type="Script" id=1]
-[ext_resource path="res://Assets/chick.png" type="Texture" id=2]
+[ext_resource path="res://Assets/PNG/Default size/Blocks/block_01.png" type="Texture" id=2]
 [ext_resource path="res://Assets/star.png" type="Texture" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 
@@ -74,25 +74,25 @@ void fragment()
 	COLOR = color;
 }"
 
-[sub_resource type="Gradient" id=9]
+[sub_resource type="Gradient" id=8]
 
-[sub_resource type="GradientTexture" id=10]
-gradient = SubResource( 9 )
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
 
-[sub_resource type="OpenSimplexNoise" id=11]
+[sub_resource type="OpenSimplexNoise" id=10]
 
-[sub_resource type="NoiseTexture" id=12]
+[sub_resource type="NoiseTexture" id=11]
 seamless = true
-noise = SubResource( 11 )
+noise = SubResource( 10 )
 
-[sub_resource type="ShaderMaterial" id=8]
+[sub_resource type="ShaderMaterial" id=12]
 shader = SubResource( 7 )
 shader_param/brighter_color = Color( 1, 0.8, 0, 1 )
 shader_param/middle_color = Color( 1, 0.56, 0, 1 )
 shader_param/darker_color = Color( 0.64, 0.2, 0.05, 1 )
 shader_param/spread = 0.6
-shader_param/noise_tex = SubResource( 12 )
-shader_param/gradient_tex = SubResource( 10 )
+shader_param/noise_tex = SubResource( 11 )
+shader_param/gradient_tex = SubResource( 9 )
 
 [node name="Piece" type="Node2D"]
 script = ExtResource( 1 )
@@ -119,6 +119,6 @@ scale = Vector2( 0.5, 0.5 )
 
 [node name="Dying" type="Sprite" parent="."]
 visible = false
-material = SubResource( 8 )
+material = SubResource( 12 )
 position = Vector2( 0, -20 )
 texture = ExtResource( 4 )
